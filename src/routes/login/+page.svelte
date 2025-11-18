@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { applyAction, enhance } from '$app/forms';
+	import { enhance } from '$app/forms';
 	import { signIn } from '$lib/auth-client';
 	import { toast } from '@zerodevx/svelte-toast';
 
-	let { data } = $props();
-	console.log(data);
+	// let { data } = $props();
+	// console.log(data);
 </script>
 
 <div class="mx-auto max-w-md p-8">
@@ -30,7 +30,14 @@
 		<button
 			type="submit"
 			class="w-full rounded-lg bg-black py-3 text-white hover:cursor-pointer hover:bg-primary disabled:opacity-50"
-			onclick={() => toast.push('Welcome 🥰💃')}
+			onclick={() =>
+				toast.push('Welcome 🥰💃', {
+					theme: {
+						'--toastColor': 'mintcream',
+						'--toastBackground': 'rgba(72,187,120,0.9)',
+						'--toastBarBackground': '#2F855A'
+					}
+				})}
 		>
 			Login
 		</button>
@@ -41,9 +48,13 @@
 	<!-- Google Login btn -->
 	<button
 		class="flex w-full justify-center rounded-lg border-2 border-black py-3 hover:cursor-pointer hover:border-none hover:bg-primary/50"
-		onclick={async () =>
-			await signIn.social({
-				provider: 'google'
+		onclick={() =>
+			toast.push('loading...', {
+				theme: {
+					'--toastColor': 'mintcream',
+					'--toastBackground': 'rgba(72,187,120,0.9)',
+					'--toastBarBackground': '#2F855A'
+				}
 			})}
 	>
 		<img src="/google.svg" alt="Google logo" class="mr-2 inline-block h-5 w-5" />

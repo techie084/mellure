@@ -1,17 +1,17 @@
 import { redirect } from '@sveltejs/kit';
 
-let login = [
-	{
-		email: 'wisommatthew08@gmail.com',
-		password: 123456789
-	}
-];
+// let login = [
+// 	{
+// 		email: 'wisommatthew08@gmail.com',
+// 		password: 123456789
+// 	}
+// ];
 
-export const load = async () => {
-	return {
-		login
-	};
-};
+// export const load = async () => {
+// 	return {
+// 		login
+// 	};
+// };
 
 export const actions = {
 	create: async ({ request }) => {
